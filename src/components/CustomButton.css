@@ -1,0 +1,60 @@
+.custom-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+/* Primary Variant: Solid Violet */
+.btn-primary {
+  background: var(--accent-primary);
+  color: #ffffff !important;
+}
+.btn-primary:hover {
+  background: #7c3aed; /* Slightly darker violet for hover */
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Secondary Variant: Clean flat border */
+.btn-secondary {
+  background: transparent;
+  border-color: var(--border-light);
+}
+.btn-secondary:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--border-light);
+}
+
+/* Cyber Variant: Solid Cyan/Blue */
+.btn-cyber {
+  background: var(--accent-cyber);
+  color: #000000 !important; /* Dark text on bright cyan is more readable */
+}
+.btn-cyber:hover {
+  background: #0891b2; /* Slightly darker cyan */
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Light mode overrides for button text contrast */
+:root[data-theme='light'] .btn-primary {
+  color: #ffffff !important;
+}
+:root[data-theme='light'] .btn-cyber {
+  color: #ffffff !important;
+  background: #0071e3; /* Apple-style clean solid blue */
+}
+:root[data-theme='light'] .btn-cyber:hover {
+  background: #0077ed;
+}

@@ -1,0 +1,345 @@
+/* Design Tokens and Theme Variables */
+:root {
+  /* Colors */
+  --bg-primary: #000000;
+  --bg-secondary: #18181b;
+  --bg-tertiary: #2c2c2e;
+  
+  --accent-primary: #8b5cf6;     /* Violet */
+  --accent-secondary: #ec4899;   /* Pink */
+  --accent-cyber: #06b6d4;       /* Cyan */
+  
+  --text-primary: #f5f5f7;       /* Apple light text */
+  --text-secondary: #a1a1a6;     /* Apple secondary text */
+  --text-muted: #86868b;         /* Apple muted text */
+  
+  --border-light: rgba(255, 255, 255, 0.12);
+  --border-focus: rgba(139, 92, 246, 0.5);
+  
+  --glass-bg: #1c1c1e;
+  --glass-bg-hover: #2c2c2e;
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-hover: rgba(255, 255, 255, 0.18);
+  --glass-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  
+  --footer-bg: #000000;
+
+  --promo-bg: #1c1c1e;
+  --promo-border: rgba(255, 255, 255, 0.12);
+  
+  --console-bg: #000000;
+  --console-border: rgba(255, 255, 255, 0.12);
+  --console-stat-bg: #1c1c1e;
+  --console-stat-border: rgba(255, 255, 255, 0.08);
+  --console-text-val: #f5f5f7;
+
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Outfit', system-ui, -apple-system, sans-serif;
+  
+  /* Grid & Layout */
+  --max-width: 1280px;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+:root[data-theme='light'] {
+  --bg-primary: #ffffff;       /* Pure white */
+  --bg-secondary: #f5f5f7;     /* Light gray backdrop */
+  --bg-tertiary: #e8e8ed;      /* Slightly darker gray */
+  
+  --text-primary: #1d1d1f;     /* Apple dark text */
+  --text-secondary: #515154;   /* Secondary gray text */
+  --text-muted: #86868b;       /* Muted gray text */
+  
+  --border-light: rgba(0, 0, 0, 0.08);
+  --border-focus: rgba(139, 92, 246, 0.5);
+  
+  --glass-bg: #ffffff;
+  --glass-bg-hover: #f5f5f7;
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-border-hover: rgba(0, 0, 0, 0.14);
+  --glass-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+
+  --footer-bg: #ffffff;
+
+  --promo-bg: #f5f5f7;
+  --promo-border: rgba(0, 0, 0, 0.08);
+  
+  --console-bg: #f5f5f7;
+  --console-border: rgba(0, 0, 0, 0.08);
+  --console-stat-bg: #ffffff;
+  --console-stat-border: rgba(0, 0, 0, 0.08);
+  --console-text-val: #1d1d1f;
+}
+
+/* Global Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* Selection Colors */
+::selection {
+  background: rgba(139, 92, 246, 0.3);
+  color: var(--text-primary);
+}
+
+/* Root layout overrides */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typography Utility */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+p {
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Premium Layout & Background Effects */
+.glow-bg {
+  display: none;
+}
+
+/* Utilities */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--glass-shadow);
+  transition: var(--transition-smooth);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 10px var(--accent-cyber);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.85);
+    box-shadow: 0 0 4px var(--accent-cyber);
+  }
+}
+
+/* Face Scanner & Interactive Portal Styles */
+@keyframes scan-laser {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes grid-fade {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes scan-dot-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.6); opacity: 1; }
+}
+
+@keyframes gate-shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+.scan-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #000;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  border: 2px solid var(--border-light);
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8);
+}
+
+.scan-container.scanning {
+  border-color: var(--accent-cyber);
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8);
+}
+
+.scan-container.success {
+  border-color: #10b981;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8);
+}
+
+.scan-container.failed {
+  border-color: #ef4444;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8);
+  animation: gate-shake 0.4s ease-in-out;
+}
+
+.scan-laser-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-cyber);
+  z-index: 10;
+  pointer-events: none;
+  animation: scan-laser 3s infinite linear;
+}
+
+.scan-laser-line.pink {
+  background: var(--accent-secondary);
+}
+
+.scan-mesh-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(6, 182, 212, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 182, 212, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+  z-index: 5;
+  pointer-events: none;
+  animation: grid-fade 4s infinite ease-in-out;
+}
+
+.scan-target-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 70%;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 100px;
+  z-index: 8;
+  pointer-events: none;
+  transition: var(--transition-smooth);
+}
+
+.scan-container.scanning .scan-target-box {
+  border-color: var(--accent-cyber);
+  border-style: solid;
+}
+
+.scan-container.success .scan-target-box {
+  border-color: #10b981;
+  border-style: solid;
+}
+
+.scan-container.failed .scan-target-box {
+  border-color: #ef4444;
+  border-style: solid;
+}
+
+.scan-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent-cyber);
+  box-shadow: 0 0 6px var(--accent-cyber);
+  z-index: 9;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.scan-container.scanning .scan-dot {
+  opacity: 0.8;
+  animation: scan-dot-pulse 1.5s infinite ease-in-out;
+}
+
+.glass-hover:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
+  transform: translateY(-4px);
+}
+
+/* Interactive Text Gradient */
+.text-gradient {
+  background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent-primary) 70%, var(--accent-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-purple {
+  background: linear-gradient(135deg, #a78bfa 0%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Brand Wordmark Custom Styling */
+.logo-text-image {
+  user-select: none;
+  pointer-events: none;
+  filter: invert(1); /* Invert black text image to white for dark mode default */
+}
+
+:root[data-theme='light'] .logo-text-image {
+  filter: none; /* Keep original black text logo for light mode */
+}
