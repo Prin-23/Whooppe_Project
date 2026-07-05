@@ -1,12 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Calendar, 
-  MapPin, 
-  Clock, 
-  ArrowRight, 
-  ArrowUpRight
-} from 'lucide-react';
+
 
 const GooglePlayIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" width="24" height="24" {...props}>
@@ -21,11 +15,11 @@ import howItWorks1 from '../assets/how-it-works-1.jpg';
 import platformText from '../assets/platform-text.png';
 import howItWorks2 from '../assets/how-it-works-2.jpg';
 import howItWorks3 from '../assets/how-it-works-3.jpg';
-import experienceEventsGif from '../assets/experience-events.gif';
+
 import partnerDashboardImg from '../assets/partner-dashboard.jpg';
 import { mockEvents } from '../data/mock_events';
 import type { EventData } from '../data/mock_events';
-import { GlassCard } from '../components/GlassCard';
+
 import { CustomButton } from '../components/CustomButton';
 import { AllEventsModal } from '../components/AllEventsModal';
 import './HomeView.css';
@@ -35,7 +29,7 @@ interface HomeViewProps {
   onViewChange: (view: string) => void;
 }
 
-export const HomeView: React.FC<HomeViewProps> = ({ onSelectEvent, onViewChange }) => {
+export const HomeView: React.FC<HomeViewProps> = ({ onSelectEvent }) => {
   const [isAllEventsModalOpen, setIsAllEventsModalOpen] = React.useState(false);
 
   return (

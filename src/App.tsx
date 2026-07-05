@@ -8,7 +8,7 @@ import { ContactView } from './views/ContactView';
 import type { EventData } from './data/mock_events';
 import './App.css';
 import logoImg from './assets/logo.png';
-import logoTextImg from './assets/logo-text.png';
+
 
 
 

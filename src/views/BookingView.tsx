@@ -22,7 +22,7 @@ interface BookingViewProps {
   onViewChange: (view: string) => void;
 }
 
-export const BookingView: React.FC<BookingViewProps> = ({ event, onCancel, onViewChange }) => {
+export const BookingView: React.FC<BookingViewProps> = ({ event, onCancel }) => {
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [quantity, setQuantity] = useState<number>(1);
   const [ticketType, setTicketType] = useState<'General' | 'VIP'>('General');

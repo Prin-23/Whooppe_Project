@@ -1,10 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, X, Calendar, MapPin, Clock, ArrowUpRight } from 'lucide-react';
+import { Search, X } from 'lucide-react';
 import { mockEvents } from '../data/mock_events';
 import type { EventData } from '../data/mock_events';
-import { GlassCard } from './GlassCard';
-import { CustomButton } from './CustomButton';
 import './AllEventsModal.css';
 
 interface AllEventsModalProps {
