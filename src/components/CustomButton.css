@@ -58,3 +58,14 @@
 :root[data-theme='light'] .btn-cyber:hover {
   background: #0077ed;
 }
+
+/* Black Variant */
+.btn-black {
+  background: #000000;
+  color: #ffffff !important;
+  border-radius: 100px;
+}
+.btn-black:hover {
+  background: #111111;
+  border-color: rgba(255, 255, 255, 0.2);
+}

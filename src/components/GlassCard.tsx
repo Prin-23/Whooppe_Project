@@ -34,7 +34,7 @@ export const GlassCard: React.FC<GlassCardProps> = ({
       }}
       onClick={onClick}
     >
-      <div style={{ position: 'relative', zIndex: 1 }}>
+      <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', height: '100%' }}>
         {children}
       </div>
     </motion.div>

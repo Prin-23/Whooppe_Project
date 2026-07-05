@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import './CustomButton.css';
 
 interface CustomButtonProps {
-  variant?: 'primary' | 'secondary' | 'cyber';
+  variant?: 'primary' | 'secondary' | 'cyber' | 'black';
   icon?: React.ReactNode;
   children: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;

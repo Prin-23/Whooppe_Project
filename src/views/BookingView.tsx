@@ -18,19 +18,11 @@ import { FaceScanner } from '../components/FaceScanner';
 interface BookingViewProps {
   event: EventData;
   onCancel: () => void;
-  onBookingComplete: (ticket: {
-    eventId: string;
-    eventTitle: string;
-    ticketId: string;
-    faceToken: string;
-    faceImage: string;
-    quantity: number;
-    ticketType: 'General' | 'VIP';
-  }) => void;
+
   onViewChange: (view: string) => void;
 }
 
-export const BookingView: React.FC<BookingViewProps> = ({ event, onCancel, onBookingComplete, onViewChange }) => {
+export const BookingView: React.FC<BookingViewProps> = ({ event, onCancel, onViewChange }) => {
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [quantity, setQuantity] = useState<number>(1);
   const [ticketType, setTicketType] = useState<'General' | 'VIP'>('General');
@@ -61,16 +53,7 @@ export const BookingView: React.FC<BookingViewProps> = ({ event, onCancel, onBoo
       return;
     }
     
-    // Create the booking record
-    onBookingComplete({
-      eventId: event.id,
-      eventTitle: event.title,
-      ticketId: `tkt_${Math.random().toString(36).substring(2, 9).toUpperCase()}`,
-      faceToken: capturedFaceToken,
-      faceImage: capturedFaceImage,
-      quantity,
-      ticketType
-    });
+
     
     setStep(3);
   };
@@ -485,9 +468,6 @@ export const BookingView: React.FC<BookingViewProps> = ({ event, onCancel, onBoo
           <div style={{ display: 'flex', gap: '16px', marginTop: '12px' }}>
             <CustomButton variant="secondary" onClick={onCancel}>
               Browse Events
-            </CustomButton>
-            <CustomButton variant="cyber" onClick={() => onViewChange('simulator')}>
-              Launch Entry Gate Simulator
             </CustomButton>
           </div>
         </div>
