@@ -5,6 +5,7 @@ import { BookingView } from './views/BookingView';
 
 import { HarikaView } from './views/HarikaView';
 import { ContactView } from './views/ContactView';
+import { BlogView } from './views/BlogView';
 import type { EventData } from './data/mock_events';
 import './App.css';
 import logoImg from './assets/logo.png';
@@ -60,6 +61,10 @@ function App() {
 
         {currentView === 'harika' && (
           <HarikaView />
+        )}
+
+        {currentView === 'blog' && (
+          <BlogView />
         )}
 
         {currentView === 'contact' && (

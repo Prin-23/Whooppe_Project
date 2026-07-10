@@ -93,6 +93,19 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange }) => 
             </li>
             <li>
               <a 
+                href="#blog" 
+                className={`nav-link ${activeTab === 'blog' ? 'nav-link-active' : ''}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onViewChange('blog');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+              >
+                Blog
+              </a>
+            </li>
+            <li>
+              <a 
                 href="#contact" 
                 className={`nav-link ${activeTab === 'contact' ? 'nav-link-active' : ''}`}
                 onClick={(e) => {
