@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './BlogView.css';
-import { Bell, ChevronLeft } from 'lucide-react';
+
 const TOP_ATTRACTIONS = [
   {
     id: 1,
