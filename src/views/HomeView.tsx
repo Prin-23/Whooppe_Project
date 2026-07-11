@@ -36,28 +36,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onSelectEvent }) => {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '80px' }}>
       
       {/* 1. Hero Landing Section */}
-      <section 
-        className="hero-container" 
-        style={{ 
-          position: 'relative', 
-          overflow: 'hidden', 
-          backgroundColor: '#ffffff', 
-          padding: '0 10%', 
-          borderRadius: '0',
-          width: '100vw',
-          height: 'calc(100vh - 100px)', /* Fit exactly on screen considering navbar */
-          minHeight: '600px', /* Ensure it doesn't break on very small screens */
-          left: '50%',
-          right: '50%',
-          marginLeft: '-50vw',
-          marginRight: '-50vw',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          marginTop: '-40px', /* offset main-content top padding */
-          marginBottom: '-80px' /* offset main-content gap to connect seamlessly with Slide 2 */
-        }}
-      >
+      <section className="hero-container">
         {/* Blue Spot in the left bottom corner */}
         <div 
           style={{
@@ -78,28 +57,16 @@ export const HomeView: React.FC<HomeViewProps> = ({ onSelectEvent }) => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="hero-text-block"
-          style={{ position: 'relative', zIndex: 1, flex: '1', maxWidth: '600px' }}
         >
-          <h1 className="hero-title-main" style={{ color: '#000000', fontSize: '72px', lineHeight: '1.05' }}>
+          <h1 className="hero-title-main">
             Skip The Queue <br />
             <span>Walk Right In</span>
           </h1>
-          <span className="hero-subtitle-main" style={{ color: '#333333', marginTop: '24px', marginBottom: '32px', display: 'block', fontSize: '16px' }}>NO QUEUE. NO PAPER. NO FRICTION</span>
+          <span className="hero-subtitle-main">NO QUEUE. NO PAPER. NO FRICTION</span>
           
-          <div style={{ display: 'flex' }}>
+          <div className="hero-btn-container">
             <button 
-              style={{
-                backgroundColor: '#000000',
-                color: '#ffffff',
-                border: 'none',
-                borderRadius: '30px',
-                padding: '16px 36px',
-                fontSize: '15px',
-                fontWeight: 700,
-                letterSpacing: '0.05em',
-                cursor: 'pointer',
-                fontFamily: 'inherit'
-              }}
+              className="hero-get-app-btn"
               onClick={() => {
                 alert("Get the app modal or redirect");
               }}
@@ -115,7 +82,6 @@ export const HomeView: React.FC<HomeViewProps> = ({ onSelectEvent }) => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
           className="phone-graphic-container"
-          style={{ position: 'relative', zIndex: 1, flex: '0.8', display: 'flex', justifyContent: 'flex-end', paddingRight: '5%' }}
         >
           <div style={{
             width: '240px',
@@ -158,7 +124,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onSelectEvent }) => {
               <img src={howItWorks1} alt="Book Your Event" className="how-illustration-image" />
             </div>
             <h3 className="how-step-title">Book Your Event</h3>
-            <p className="how-step-desc">Browse events and purchase tickets through the Whooppe app.</p>
+            <p className="how-step-desc">Browse events and purchase<br/>tickets through the Whooppe app.</p>
           </motion.div>
 
           <motion.div 
@@ -172,7 +138,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onSelectEvent }) => {
               <img src={howItWorks2} alt="Register Your Face" className="how-illustration-image" />
             </div>
             <h3 className="how-step-title">Register Your Face</h3>
-            <p className="how-step-desc">One-time biometric enrollment via the app.</p>
+            <p className="how-step-desc">One-time biometric enrollment<br/>via the app..</p>
           </motion.div>
 
           <motion.div 
@@ -186,16 +152,16 @@ export const HomeView: React.FC<HomeViewProps> = ({ onSelectEvent }) => {
               <img src={howItWorks3} alt="Walk Right In" className="how-illustration-image" />
             </div>
             <h3 className="how-step-title">Walk Right In</h3>
-            <p className="how-step-desc">One-time biometric enrollment via the app.</p>
+            <p className="how-step-desc">Scan the face at the venue and you<br/>are in. No Ticket. No hassel</p>
           </motion.div>
         </div>
       </section>
 
       {/* 3. Upcoming Events Section */}
       <section className="screenshot-events-section" id="upcoming-events">
-        <div style={{ position: 'relative', maxWidth: '1200px', margin: '0 auto 50px' }}>
-          <h2 className="screenshot-events-title" style={{ marginBottom: 0 }}>UPCOMING EVENTS</h2>
-          <div style={{ position: 'absolute', right: '16px', top: '50%', transform: 'translateY(-50%)' }}>
+        <div className="screenshot-events-header">
+          <h2 className="screenshot-events-title">UPCOMING EVENTS</h2>
+          <div className="screenshot-events-view-all">
             <CustomButton 
               variant="secondary" 
               onClick={() => setIsAllEventsModalOpen(true)}

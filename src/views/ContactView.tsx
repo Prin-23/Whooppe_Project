@@ -1,10 +1,39 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './ContactView.css';
 
 export const ContactView: React.FC = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
+
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const faqs = [
+    {
+      q: "How does facial recognition ticketing work?",
+      a: "Our facial recognition technology allows you to enter events without physical tickets. Simply purchase tickets through our app, register your face, and walk into the venue. Our secure system verifies your identity in seconds."
+    },
+    {
+      q: "Is my facial data secure?",
+      a: "Absolutely. We use bank-level encryption and never share your biometric data with third parties. Your facial data is only used for entry verification and is deleted after the event."
+    },
+    {
+      q: "How can I list my event on Whooppe?",
+      a: "Event organizers can partner with us by filling out our contact form or emailing us at partnerships@woopy.com. Our team will guide you through the onboarding process and help you leverage our technology."
+    },
+    {
+      q: "What if facial recognition doesn't work?",
+      a: "We have backup verification methods including QR codes in the app and manual verification with ID. Our system has a 99.9% success rate, but we're always prepared with alternatives."
+    },
+    {
+      q: "Can I get a refund if I can't attend?",
+      a: "Refund policies vary by event. Most events offer refunds up to 48 hours before the event date. Check the specific event page for detailed refund information."
+    },
+    {
+      q: "Do you charge service fees?",
+      a: "We charge a small service fee to cover technology costs and platform maintenance. This fee is clearly displayed during checkout before you complete your purchase."
+    }
+  ];
 
   return (
     <div className="contact-page-container">
@@ -174,17 +203,21 @@ export const ContactView: React.FC = () => {
         </div>
 
         <div className="faq-grid">
-          {[
-            "How does facial recognition ticketing work?",
-            "Is my facial data secure?",
-            "How can I list my event on Whooppe?",
-            "What if facial recognition doesn't work?",
-            "Can I get a refund if I can't attend?",
-            "Do you charge service fees?"
-          ].map((q) => (
-            <div className="faq-item" key={q}>
-              <span className="faq-text">{q}</span>
-              <span className="faq-plus">+</span>
+          {faqs.map((faq, index) => (
+            <div 
+              className={`faq-item ${openFaq === index ? 'open' : ''}`} 
+              key={faq.q}
+              onClick={() => setOpenFaq(openFaq === index ? null : index)}
+            >
+              <div className="faq-question-row">
+                <span className="faq-text">{faq.q}</span>
+                <span className="faq-plus">{openFaq === index ? '−' : '+'}</span>
+              </div>
+              {openFaq === index && (
+                <div className="faq-answer">
+                  {faq.a}
+                </div>
+              )}
             </div>
           ))}
         </div>

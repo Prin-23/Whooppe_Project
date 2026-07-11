@@ -333,24 +333,135 @@
 }
 
 @media (max-width: 768px) {
+  /* Hero Section */
+  .blog-hero {
+    height: 550px;
+    margin-top: -40px;
+    background-position: center;
+  }
+  
+  .blog-hero-content {
+    bottom: 40px;
+    left: 20px;
+    right: 20px;
+    max-width: calc(100% - 40px);
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(-24px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+  }
+  
+  .blog-hero-content h1 {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  
+  .blog-hero-content p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  /* Sections & Typography */
+  .blog-section {
+    padding: 50px 20px;
+  }
+  
+  .section-title {
+    font-size: 26px;
+    margin-bottom: 16px;
+  }
+  
+  .section-subtitle {
+    font-size: 14px;
+    margin: 0 auto 32px;
+    padding: 0 10px;
+  }
+
+  /* Grid & Cards */
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .blog-card-image {
+    height: 220px;
+  }
+  
+  .blog-card-content {
+    padding: 20px;
+  }
+  
+  .blog-card-content h3 {
+    font-size: 22px;
+  }
+  
+  /* Info Cards */
+  .blog-info-section {
+    padding: 40px 20px;
+  }
+  
+  .info-cards-container {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .info-card {
+    min-width: 100%;
+    padding: 16px 20px;
+  }
+
+  /* App Banner */
   .app-banner {
     flex-direction: column;
-    overflow: hidden;
+    height: auto;
+    border-radius: 20px;
+    padding: 40px 20px 0;
+    overflow: visible;
+    margin-bottom: 60px;
   }
+  
   .app-banner-content {
-    padding: 40px;
+    padding: 0 10px 20px;
     align-items: center;
     text-align: center;
   }
+  
+  .app-banner-content h2 {
+    font-size: 24px;
+  }
+  
+  .app-banner-content p {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+  
   .app-buttons {
+    display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 16px;
   }
+  
+  .google-play-img, 
+  .app-store-img {
+    height: 95px;
+  }
+  
   .app-banner-image-container {
-    padding: 0;
+    display: flex;
     justify-content: center;
+    width: 100%;
+    padding: 0;
   }
+  
   .phone-mockup-img {
-    transform: translateY(20px);
-    margin-bottom: 20px;
+    position: relative;
+    top: auto;
+    right: auto;
+    height: 300px;
+    margin-bottom: -80px;
+    z-index: 10;
   }
 }

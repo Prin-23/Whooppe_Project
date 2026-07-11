@@ -73,54 +73,45 @@ function App() {
       </main>
 
       {/* Shared Footer Segment matching reference image layout */}
-      <footer 
-        id="app-footer"
-        style={{
-          marginTop: 'auto',
-          backgroundColor: '#e3f0fc',
-          color: '#111',
-          padding: '40px 60px 20px',
-          fontFamily: 'system-ui, -apple-system, sans-serif'
-        }}
-      >
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '40px' }}>
+      <footer id="app-footer" className="shared-footer">
+        <div className="footer-top-row">
           {/* Logo Left */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '20px' }}>
-            <img src={logoImg} alt="Logo" style={{ height: '120px' }} />
+          <div className="footer-logo-container">
+            <img src={logoImg} alt="Logo" className="footer-logo" />
           </div>
 
           {/* QR Code Right */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginRight: '20px' }}>
-            <div style={{ background: 'white', padding: '8px', border: '1px solid #ccc', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <img src="/qr-code.png" alt="QR Code" style={{ width: '70px', height: '70px', objectFit: 'contain' }} />
+          <div className="footer-qr-container">
+            <div className="footer-qr-box">
+              <img src="/qr-code.png" alt="QR Code" className="footer-qr-img" />
             </div>
-            <span style={{ fontSize: '14px', marginTop: '12px', color: '#111' }}>Scan To Get the App</span>
+            <span className="footer-qr-text">Scan To Get the App</span>
           </div>
         </div>
 
         {/* Middle Links */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '16px', fontWeight: '500', marginBottom: '30px', padding: '0 40px', color: '#111' }}>
-          <a href="#terms" onClick={(e) => e.preventDefault()} style={{ color: 'inherit', textDecoration: 'none' }}>Terms & Conditions</a>
-          <a href="#privacy" onClick={(e) => e.preventDefault()} style={{ color: 'inherit', textDecoration: 'none' }}>Privacy Policy</a>
-          <a href="#list" onClick={(e) => e.preventDefault()} style={{ color: 'inherit', textDecoration: 'none' }}>List all Events</a>
-          <a href="#contact" onClick={(e) => e.preventDefault()} style={{ color: 'inherit', textDecoration: 'none' }}>Contact Us</a>
-          <a href="#about" onClick={(e) => e.preventDefault()} style={{ color: 'inherit', textDecoration: 'none' }}>About Us</a>
+        <div className="footer-links-row">
+          <a href="#terms" onClick={(e) => e.preventDefault()} className="footer-link-item">Terms & Conditions</a>
+          <a href="#list" onClick={(e) => e.preventDefault()} className="footer-link-item">List all Events</a>
+          <a href="#privacy" onClick={(e) => e.preventDefault()} className="footer-link-item">Privacy Policy</a>
+          <a href="#contact" onClick={(e) => e.preventDefault()} className="footer-link-item">Contact Us</a>
+          <a href="#about" onClick={(e) => e.preventDefault()} className="footer-link-item">About Us</a>
         </div>
 
         {/* Separator Line */}
-        <div style={{ height: '1px', backgroundColor: '#111', marginBottom: '20px', width: '100%' }}></div>
+        <div className="footer-separator"></div>
 
         {/* Bottom Row */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px', padding: '0 40px' }}>
-          <div style={{ fontSize: '13px', color: '#111' }}>
+        <div className="footer-bottom-row">
+          <div className="footer-copyright">
             2026 Copy Right @Thrillathon Innovation private limited
           </div>
           
-          <div style={{ display: 'flex' }}>
+          <div className="footer-social-container">
             <img 
               src="/social-icons.png" 
               alt="Social Media Links" 
-              style={{ height: '40px', objectFit: 'contain' }} 
+              className="footer-social-img" 
             />
           </div>
         </div>

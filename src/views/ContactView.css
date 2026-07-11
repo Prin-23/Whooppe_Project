@@ -261,8 +261,9 @@
   border-radius: 8px;
   padding: 16px 24px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(100, 181, 246, 0.4);
   transition: transform 0.2s, box-shadow 0.2s;
@@ -274,6 +275,13 @@
   box-shadow: 0 6px 16px rgba(100, 181, 246, 0.6);
 }
 
+.faq-question-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .faq-text {
   font-size: 14px;
   font-weight: 500;
@@ -283,6 +291,16 @@
   font-size: 24px;
   font-weight: 300;
   line-height: 1;
+}
+
+.faq-answer {
+  margin-top: 12px;
+  font-size: 13.5px;
+  color: #d1d5db;
+  line-height: 1.5;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 12px;
+  width: 100%;
 }
 
 .download-section {
