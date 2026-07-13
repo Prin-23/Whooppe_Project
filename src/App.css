@@ -411,7 +411,7 @@
   background-color: #e3f0fc;
   color: #111;
   padding: 40px 60px 20px;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans);
 }
 
 .footer-top-row {
@@ -492,9 +492,19 @@
 .footer-social-container {
   display: flex;
 }
-.footer-social-img {
-  height: 40px;
-  object-fit: contain;
+.social-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  transition: transform 0.2s ease, color 0.2s ease;
+  width: 28px;
+  height: 28px;
+}
+
+.social-icon-link:hover {
+  transform: translateY(-2px);
+  color: #6b21a8;
 }
 
 @media (max-width: 768px) {

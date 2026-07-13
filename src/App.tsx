@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { HomeView } from './views/HomeView';
 import { BookingView } from './views/BookingView';
+import { AllEventsModal } from './components/AllEventsModal';
 
 import { HarikaView } from './views/HarikaView';
 import { ContactView } from './views/ContactView';
@@ -9,13 +10,14 @@ import { BlogView } from './views/BlogView';
 import type { EventData } from './data/mock_events';
 import './App.css';
 import logoImg from './assets/logo.png';
-
+import { FacebookIcon, InstagramIcon, TwitterXIcon, WhatsappIcon } from './components/SocialIcons';
 
 
 
 function App() {
   const [currentView, setCurrentView] = useState<string>('home');
   const [selectedEvent, setSelectedEvent] = useState<EventData | null>(null);
+  const [isAllEventsModalOpen, setIsAllEventsModalOpen] = useState(false);
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', 'light');
     localStorage.setItem('theme', 'light');
@@ -38,6 +40,7 @@ function App() {
       <Navbar 
         currentView={currentView} 
         onViewChange={setCurrentView} 
+        onOpenAllEvents={() => setIsAllEventsModalOpen(true)}
       />
 
       {/* Main Responsive Routing Container */}
@@ -46,6 +49,7 @@ function App() {
           <HomeView 
             onSelectEvent={handleSelectEvent} 
             onViewChange={setCurrentView} 
+            onOpenAllEvents={() => setIsAllEventsModalOpen(true)}
           />
         )}
         
@@ -92,9 +96,9 @@ function App() {
         {/* Middle Links */}
         <div className="footer-links-row">
           <a href="#terms" onClick={(e) => e.preventDefault()} className="footer-link-item">Terms & Conditions</a>
-          <a href="#list" onClick={(e) => e.preventDefault()} className="footer-link-item">List all Events</a>
+          <a href="#list" onClick={(e) => { e.preventDefault(); setIsAllEventsModalOpen(true); }} className="footer-link-item">List all Events</a>
           <a href="#privacy" onClick={(e) => e.preventDefault()} className="footer-link-item">Privacy Policy</a>
-          <a href="#contact" onClick={(e) => e.preventDefault()} className="footer-link-item">Contact Us</a>
+          <a href="#contact" onClick={(e) => { e.preventDefault(); setCurrentView('contact'); window.scrollTo(0,0); }} className="footer-link-item">Contact Us</a>
           <a href="#about" onClick={(e) => e.preventDefault()} className="footer-link-item">About Us</a>
         </div>
 
@@ -107,15 +111,19 @@ function App() {
             2026 Copy Right @Thrillathon Innovation private limited
           </div>
           
-          <div className="footer-social-container">
-            <img 
-              src="/social-icons.png" 
-              alt="Social Media Links" 
-              className="footer-social-img" 
-            />
+          <div className="footer-social-container" style={{ display: 'flex', gap: '16px' }}>
+            <a href="#" className="social-icon-link" aria-label="WhatsApp"><WhatsappIcon /></a>
+            <a href="#" className="social-icon-link" aria-label="Instagram"><InstagramIcon /></a>
+            <a href="#" className="social-icon-link" aria-label="Facebook"><FacebookIcon /></a>
+            <a href="#" className="social-icon-link" aria-label="X (Twitter)"><TwitterXIcon /></a>
           </div>
         </div>
       </footer>
+      <AllEventsModal 
+        isOpen={isAllEventsModalOpen}
+        onClose={() => setIsAllEventsModalOpen(false)}
+        onSelectEvent={handleSelectEvent}
+      />
     </div>
   );
 }

@@ -5,9 +5,10 @@ import { CustomButton } from './CustomButton';
 interface NavbarProps {
   currentView: string;
   onViewChange: (view: string) => void;
+  onOpenAllEvents: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange }) => {
+export const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange, onOpenAllEvents }) => {
   const [activeTab, setActiveTab] = useState(currentView);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -37,14 +38,22 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange }) => 
   }, [currentView]);
 
   useEffect(() => {
+    let ignoreScroll = true;
+    const timeoutId = setTimeout(() => {
+      ignoreScroll = false;
+    }, 500);
+
     const handleScrollClose = () => {
-      if (isMobileMenuOpen) {
+      if (!ignoreScroll && isMobileMenuOpen) {
         setIsMobileMenuOpen(false);
       }
     };
 
     window.addEventListener('scroll', handleScrollClose, { passive: true });
-    return () => window.removeEventListener('scroll', handleScrollClose);
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener('scroll', handleScrollClose);
+    };
   }, [isMobileMenuOpen]);
 
   return (
@@ -82,11 +91,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange }) => 
                 className={`nav-link ${activeTab === 'events' ? 'nav-link-active' : ''}`}
                 onClick={(e) => {
                   e.preventDefault();
-                  onViewChange('home');
-                  // Allow time to render home view before scrolling
-                  setTimeout(() => {
-                    document.getElementById('upcoming-events')?.scrollIntoView({ behavior: 'smooth' });
-                  }, 50);
+                  onOpenAllEvents();
                 }}
               >
                 Events
@@ -173,7 +178,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange }) => 
                 <a href="#home" onClick={(e) => { e.preventDefault(); onViewChange('home'); setIsMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>Home</a>
               </li>
               <li>
-                <a href="#events" onClick={(e) => { e.preventDefault(); onViewChange('home'); setIsMobileMenuOpen(false); setTimeout(() => { document.getElementById('upcoming-events')?.scrollIntoView({ behavior: 'smooth' }); }, 50); }}>Events</a>
+                <a href="#events" onClick={(e) => { e.preventDefault(); onOpenAllEvents(); setIsMobileMenuOpen(false); }}>Events</a>
               </li>
               <li>
                 <a href="#harika" onClick={(e) => { e.preventDefault(); onViewChange('harika'); setIsMobileMenuOpen(false); }}>Harika</a>

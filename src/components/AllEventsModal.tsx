@@ -142,7 +142,8 @@ export const AllEventsModal: React.FC<AllEventsModalProps> = ({ isOpen, onClose,
                     </div>
                     <div className="screenshot-event-info">
                       <h3 className="screenshot-event-title">Voltage<br/>Festival 2026</h3>
-                      <p className="screenshot-event-date">01 June 2026,<br/>7:00 PM</p>
+                      <p className="screenshot-event-date">7:00 PM, 01 June 2026</p>
+                      <p className="screenshot-event-place" style={{ fontSize: '13px', color: '#666', marginTop: '4px' }}>From: Delhi NCR</p>
                     </div>
                   </div>
                 ))

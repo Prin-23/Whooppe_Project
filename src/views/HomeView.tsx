@@ -21,16 +21,15 @@ import { mockEvents } from '../data/mock_events';
 import type { EventData } from '../data/mock_events';
 
 import { CustomButton } from '../components/CustomButton';
-import { AllEventsModal } from '../components/AllEventsModal';
 import './HomeView.css';
 
 interface HomeViewProps {
   onSelectEvent: (event: EventData) => void;
   onViewChange: (view: string) => void;
+  onOpenAllEvents: () => void;
 }
 
-export const HomeView: React.FC<HomeViewProps> = ({ onSelectEvent }) => {
-  const [isAllEventsModalOpen, setIsAllEventsModalOpen] = React.useState(false);
+export const HomeView: React.FC<HomeViewProps> = ({ onSelectEvent, onOpenAllEvents }) => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '80px' }}>
@@ -163,33 +162,36 @@ export const HomeView: React.FC<HomeViewProps> = ({ onSelectEvent }) => {
           <h2 className="screenshot-events-title">UPCOMING EVENTS</h2>
           <div className="screenshot-events-view-all">
             <CustomButton 
-              variant="secondary" 
-              onClick={() => setIsAllEventsModalOpen(true)}
+              variant="black" 
+              onClick={() => onOpenAllEvents()}
             >
               View All
             </CustomButton>
           </div>
         </div>
 
-        <div className="screenshot-events-grid">
-          {mockEvents.slice(0, 5).map((evt, idx) => (
-            <div key={evt.id} className="screenshot-event-card" onClick={() => onSelectEvent(evt)}>
-              <div className="screenshot-event-image-wrapper">
-                <img src={evt.image} alt={evt.title} className="screenshot-event-image" />
-                <div className="screenshot-event-rating">
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <span className="rating-star">★</span>
-                    <span>{idx % 2 === 0 ? '8.4' : '8.2'}</span>
+        <div className="screenshot-events-slider-container">
+          <div className="screenshot-events-track" onTouchStart={() => {}}>
+            {[...mockEvents.slice(0, 5), ...mockEvents.slice(0, 5)].map((evt, idx) => (
+              <div key={`${evt.id}-${idx}`} className="screenshot-event-card" onClick={() => onSelectEvent(evt)}>
+                <div className="screenshot-event-image-wrapper">
+                  <img src={evt.image} alt={evt.title} className="screenshot-event-image" />
+                  <div className="screenshot-event-rating">
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <span className="rating-star">★</span>
+                      <span>{idx % 2 === 0 ? '8.4' : '8.2'}</span>
+                    </div>
+                    <div className="rating-votes">{idx % 2 === 0 ? '12.3K' : '10.6K'} votes</div>
                   </div>
-                  <div className="rating-votes">{idx % 2 === 0 ? '12.3K' : '10.6K'} votes</div>
+                </div>
+                <div className="screenshot-event-info">
+                  <h3 className="screenshot-event-title">Voltage<br/>Festival 2026</h3>
+                  <p className="screenshot-event-date">7:00 PM, 01 June 2026</p>
+                  <p className="screenshot-event-place" style={{ fontSize: '13px', color: '#666', marginTop: '4px' }}>From: Delhi NCR</p>
                 </div>
               </div>
-              <div className="screenshot-event-info">
-                <h3 className="screenshot-event-title">Voltage<br/>Festival 2026</h3>
-                <p className="screenshot-event-date">01 June 2026,<br/>7:00 PM</p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
@@ -264,11 +266,6 @@ export const HomeView: React.FC<HomeViewProps> = ({ onSelectEvent }) => {
 
       {/* Footer is handled globally in App.tsx layout */}
 
-      <AllEventsModal 
-        isOpen={isAllEventsModalOpen}
-        onClose={() => setIsAllEventsModalOpen(false)}
-        onSelectEvent={onSelectEvent}
-      />
     </div>
   );
 };
