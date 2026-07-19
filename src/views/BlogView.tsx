@@ -89,12 +89,6 @@ export const BlogView: React.FC = () => {
         <div className="blog-hero-overlay"></div>
         <div className="blog-hero-content">
           <h1>Places to Visit in Kota</h1>
-          <p>
-            Discover the charm of Kota through its iconic landmarks, peaceful gardens, 
-            historic forts, and hidden local gems. Whether you're planning a weekend 
-            getaway or exploring the city's rich culture, this guide will help you uncover 
-            the best places for a memorable experience starting around every corner.
-          </p>
         </div>
       </section>
 

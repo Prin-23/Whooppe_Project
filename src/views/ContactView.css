@@ -241,19 +241,12 @@
 }
 
 .faq-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 24px;
-  max-width: 900px;
+  max-width: 800px;
   width: 100%;
   margin-bottom: 80px;
-  align-items: start;
-}
-
-@media (max-width: 768px) {
-  .faq-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 .faq-item {

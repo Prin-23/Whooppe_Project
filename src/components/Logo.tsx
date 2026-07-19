@@ -1,6 +1,6 @@
 import React from 'react';
 import logoImg from '../assets/logo.png';
-import logoTextImg from '../assets/logo-text.png';
+import logoTextImg from '../assets/logo-text2.png';
 
 interface LogoProps {
   size?: number;

@@ -28,7 +28,7 @@
 
 .blog-hero-content {
   position: absolute;
-  bottom: 250px; /* Anchor to the bottom so it moves synchronously with the bottom-anchored background image */
+  bottom: 450px; /* Anchor to the bottom so it moves synchronously with the bottom-anchored background image */
   left: 8%; /* Fixed percentage from the left */
   z-index: 1;
   max-width: 550px; 
@@ -42,7 +42,7 @@
 }
 
 .blog-hero-content h1 {
-  font-size: 40px; /* Slightly smaller to fit nicely */
+  font-size: 55px; /* Slightly smaller to fit nicely */
   margin-bottom: 16px;
   color: #000;
   letter-spacing: -0.5px;
@@ -341,21 +341,17 @@
   }
   
   .blog-hero-content {
-    bottom: 40px;
-    left: 20px;
-    right: 20px;
+    position: absolute;
+    align-items: center;
+    bottom: 340px;
     max-width: calc(100% - 40px);
-    padding: 24px;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(-24px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 10px 15px 8px;
     border-radius: 20px;
   }
   
   .blog-hero-content h1 {
-    font-size: 32px;
-    margin-bottom: 12px;
+    font-size: 50px;
+    font-weight: 800;
   }
   
   .blog-hero-content p {
@@ -444,9 +440,15 @@
     gap: 16px;
   }
   
-  .google-play-img, 
+  .google-play-img {
+    width: 150px;
+    height: auto;
+  }
+  
   .app-store-img {
-    height: 95px;
+    width: 190px;
+    height: auto;
+    margin-top: -80px;
   }
   
   .app-banner-image-container {
@@ -460,8 +462,8 @@
     position: relative;
     top: auto;
     right: auto;
-    height: 300px;
-    margin-bottom: -80px;
+    height: 350px;
+    margin-bottom: -30px;
     z-index: 10;
   }
 }

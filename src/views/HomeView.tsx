@@ -223,7 +223,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onSelectEvent, onOpenAllEven
               <a href="#appstore" className="app-store-badge" onClick={(e) => { e.stopPropagation(); e.preventDefault(); alert("Redirecting to Apple App Store..."); }}>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg" alt="App Store" width="24" height="24" style={{ borderRadius: '4px' }} />
                 <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.1, textAlign: 'left' }}>
-                  <span style={{ fontSize: '9px', opacity: 0.7 }}>get it on</span>
+                  <span style={{ fontSize: '9px', opacity: 0.7 }}>Get It On</span>
                   <span style={{ fontSize: '13px', fontWeight: 700 }}>App Store</span>
                 </div>
               </a>

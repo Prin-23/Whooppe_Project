@@ -7,6 +7,7 @@ import { AllEventsModal } from './components/AllEventsModal';
 import { HarikaView } from './views/HarikaView';
 import { ContactView } from './views/ContactView';
 import { BlogView } from './views/BlogView';
+import { TermsView } from './views/TermsView';
 import type { EventData } from './data/mock_events';
 import './App.css';
 import logoImg from './assets/logo.png';
@@ -74,6 +75,10 @@ function App() {
         {currentView === 'contact' && (
           <ContactView />
         )}
+
+        {currentView === 'terms' && (
+          <TermsView />
+        )}
       </main>
 
       {/* Shared Footer Segment matching reference image layout */}
@@ -95,9 +100,9 @@ function App() {
 
         {/* Middle Links */}
         <div className="footer-links-row">
-          <a href="#terms" onClick={(e) => e.preventDefault()} className="footer-link-item">Terms & Conditions</a>
+          <a href="#terms" onClick={(e) => { e.preventDefault(); setCurrentView('terms'); window.scrollTo(0,0); }} className="footer-link-item">Terms & Conditions</a>
           <a href="#list" onClick={(e) => { e.preventDefault(); setIsAllEventsModalOpen(true); }} className="footer-link-item">List all Events</a>
-          <a href="#privacy" onClick={(e) => e.preventDefault()} className="footer-link-item">Privacy Policy</a>
+          <a href="https://thrillathon.co.in/policy.html" target="_blank" rel="noopener noreferrer" className="footer-link-item">Privacy Policy</a>
           <a href="#contact" onClick={(e) => { e.preventDefault(); setCurrentView('contact'); window.scrollTo(0,0); }} className="footer-link-item">Contact Us</a>
           <a href="#about" onClick={(e) => e.preventDefault()} className="footer-link-item">About Us</a>
         </div>

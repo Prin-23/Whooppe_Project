@@ -19,10 +19,10 @@
   justify-content: space-between;
   align-items: center;
   border-radius: 100px;
-  background: rgba(255, 255, 255, 0.15) !important; /* Made more transparent */
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  background: rgba(255, 255, 255, 0.45) !important; /* White frosted glass */
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
 }
 
 .logo-container {
@@ -55,7 +55,7 @@
 .nav-link {
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   transition: var(--transition-smooth);
 }
@@ -130,7 +130,7 @@
   padding: 16px 0;
   color: #ffffff;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 500;
   font-family: var(--font-sans);
 }

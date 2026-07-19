@@ -337,7 +337,7 @@
 
 .screenshot-events-view-all {
   position: absolute;
-  right: 16px;
+  right: -12px;
   top: 50%;
   transform: translateY(-50%);
 }
