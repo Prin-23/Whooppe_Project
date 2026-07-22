@@ -142,12 +142,51 @@
 }
 
 @media (max-width: 600px) {
+  .download-app-modal-content {
+    padding: 16px;
+    gap: 12px;
+    width: 90%;
+    max-height: 95vh;
+    overflow-y: auto;
+  }
+
+  .download-modal-title {
+    font-size: 18px;
+  }
+
   .download-modal-body {
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
+    gap: 12px;
   }
   
   .download-modal-image-container {
     max-width: 100%;
+    height: 120px;
+    flex: none;
+  }
+
+  .download-modal-info-item {
+    font-size: 13px;
+    gap: 8px;
+  }
+
+  .download-modal-divider {
+    margin: 12px 0;
+  }
+
+  .download-modal-action-section {
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .download-modal-action-text {
+    font-size: 13px;
+  }
+
+  .download-modal-badges {
+    justify-content: center;
+    gap: 8px;
   }
 }
