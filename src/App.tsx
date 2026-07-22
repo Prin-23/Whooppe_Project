@@ -3,11 +3,13 @@ import { Navbar } from './components/Navbar';
 import { HomeView } from './views/HomeView';
 import { BookingView } from './views/BookingView';
 import { AllEventsModal } from './components/AllEventsModal';
+import { DownloadAppModal } from './components/DownloadAppModal';
 
 import { HarikaView } from './views/HarikaView';
 import { ContactView } from './views/ContactView';
 import { BlogView } from './views/BlogView';
 import { TermsView } from './views/TermsView';
+import { PrivacyView } from './views/PrivacyView';
 import type { EventData } from './data/mock_events';
 import './App.css';
 import logoImg from './assets/logo.png';
@@ -19,6 +21,8 @@ function App() {
   const [currentView, setCurrentView] = useState<string>('home');
   const [selectedEvent, setSelectedEvent] = useState<EventData | null>(null);
   const [isAllEventsModalOpen, setIsAllEventsModalOpen] = useState(false);
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
+  const [downloadModalEvent, setDownloadModalEvent] = useState<EventData | null>(null);
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', 'light');
     localStorage.setItem('theme', 'light');
@@ -28,6 +32,11 @@ function App() {
     setSelectedEvent(event);
     setCurrentView('booking');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleBookTicket = (event: EventData) => {
+    setDownloadModalEvent(event);
+    setIsDownloadModalOpen(true);
   };
 
 
@@ -49,8 +58,8 @@ function App() {
         {currentView === 'home' && (
           <HomeView 
             onSelectEvent={handleSelectEvent} 
-            onViewChange={setCurrentView} 
             onOpenAllEvents={() => setIsAllEventsModalOpen(true)}
+            onBookTicket={handleBookTicket}
           />
         )}
         
@@ -79,6 +88,10 @@ function App() {
         {currentView === 'terms' && (
           <TermsView />
         )}
+
+        {currentView === 'privacy' && (
+          <PrivacyView />
+        )}
       </main>
 
       {/* Shared Footer Segment matching reference image layout */}
@@ -102,9 +115,9 @@ function App() {
         <div className="footer-links-row">
           <a href="#terms" onClick={(e) => { e.preventDefault(); setCurrentView('terms'); window.scrollTo(0,0); }} className="footer-link-item">Terms & Conditions</a>
           <a href="#list" onClick={(e) => { e.preventDefault(); setIsAllEventsModalOpen(true); }} className="footer-link-item">List all Events</a>
-          <a href="https://thrillathon.co.in/policy.html" target="_blank" rel="noopener noreferrer" className="footer-link-item">Privacy Policy</a>
+          <a href="#privacy" onClick={(e) => { e.preventDefault(); setCurrentView('privacy'); window.scrollTo(0,0); }} className="footer-link-item">Privacy Policy</a>
           <a href="#contact" onClick={(e) => { e.preventDefault(); setCurrentView('contact'); window.scrollTo(0,0); }} className="footer-link-item">Contact Us</a>
-          <a href="#about" onClick={(e) => e.preventDefault()} className="footer-link-item">About Us</a>
+          <a href="#blog" onClick={(e) => { e.preventDefault(); setCurrentView('blog'); window.scrollTo(0,0); }} className="footer-link-item">Blog</a>
         </div>
 
         {/* Separator Line */}
@@ -128,6 +141,12 @@ function App() {
         isOpen={isAllEventsModalOpen}
         onClose={() => setIsAllEventsModalOpen(false)}
         onSelectEvent={handleSelectEvent}
+        onBookTicket={handleBookTicket}
+      />
+      <DownloadAppModal
+        isOpen={isDownloadModalOpen}
+        onClose={() => setIsDownloadModalOpen(false)}
+        event={downloadModalEvent}
       />
     </div>
   );

@@ -101,8 +101,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange, onOpe
               <a 
                 href="https://thrillathone-project.vercel.app/#harika" 
                 className={`nav-link ${activeTab === 'harika' ? 'nav-link-active' : ''}`}
-                target="_blank"
-                rel="noopener noreferrer"
               >
                 Harika
               </a>
@@ -179,7 +177,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange, onOpe
                 <a href="#events" onClick={(e) => { e.preventDefault(); onOpenAllEvents(); setIsMobileMenuOpen(false); }}>Events</a>
               </li>
               <li>
-                <a href="https://thrillathone-project.vercel.app/#harika" target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)}>Harika</a>
+                <a href="https://thrillathone-project.vercel.app/#harika" onClick={() => setIsMobileMenuOpen(false)}>Harika</a>
               </li>
               <li>
                 <a href="#blog" onClick={(e) => { e.preventDefault(); onViewChange('blog'); setIsMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>Blog</a>

@@ -9,9 +9,10 @@ interface AllEventsModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSelectEvent: (event: EventData) => void;
+  onBookTicket: (event: EventData) => void;
 }
 
-export const AllEventsModal: React.FC<AllEventsModalProps> = ({ isOpen, onClose, onSelectEvent }) => {
+export const AllEventsModal: React.FC<AllEventsModalProps> = ({ isOpen, onClose, onSelectEvent, onBookTicket }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedDate, setSelectedDate] = useState('All');
@@ -142,8 +143,14 @@ export const AllEventsModal: React.FC<AllEventsModalProps> = ({ isOpen, onClose,
                     </div>
                     <div className="screenshot-event-info">
                       <h3 className="screenshot-event-title">Voltage<br/>Festival 2026</h3>
-                      <p className="screenshot-event-date">7:00 PM, 01 June 2026</p>
-                      <p className="screenshot-event-place" style={{ fontSize: '13px', color: '#666', marginTop: '4px' }}>From: Delhi NCR</p>
+                      <p className="screenshot-event-date" style={{ fontSize: '12px', fontWeight: 600, color: '#111', marginTop: '4px' }}>01 June 2026, 7:00 PM</p>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginTop: '8px' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                          <p style={{ fontSize: '12px', fontWeight: 700, color: '#111', margin: 0 }}>₹499 Onwards</p>
+                          <p style={{ fontSize: '12px', color: '#111', margin: 0 }}>Delhi NCR</p>
+                        </div>
+                        <button style={{ backgroundColor: '#000', color: '#fff', border: 'none', padding: '6px 12px', borderRadius: '16px', fontSize: '13px', fontWeight: 600, cursor: 'pointer' }} onClick={(e) => { e.stopPropagation(); onBookTicket(evt); }}>Book Ticket</button>
+                      </div>
                     </div>
                   </div>
                 ))

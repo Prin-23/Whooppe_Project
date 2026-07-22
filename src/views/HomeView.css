@@ -498,8 +498,8 @@
 .app-promo-banner {
   border: none;
   border-radius: 0;
-  padding: 60px max(24px, calc((100vw - 1200px) / 2));
-  min-height: 400px;
+  padding: 30px max(24px, calc((100vw - 1200px) / 2));
+  min-height: 250px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -777,8 +777,8 @@
 @media (max-width: 900px) {
   .app-promo-banner {
     flex-direction: column;
-    padding: 40px 24px;
-    gap: 32px;
+    padding: 30px 24px;
+    gap: 24px;
     align-items: flex-start;
   }
   

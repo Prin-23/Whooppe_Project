@@ -8,23 +8,29 @@ export const TermsView: React.FC = () => {
   }, []);
 
   return (
-    <div className="terms-container">
-      {/* Header bar */}
-      <div className="terms-header-bar">
-        <div className="terms-header-left">
-          <img src={logoImg} alt="Thrillathon" className="terms-logo" />
+    <div className="terms-page">
+      {/* Header gradient pill */}
+      <div className="terms-header-pill">
+        <div className="terms-header-logo">
+          <img src={logoImg} alt="Thrillathon" />
         </div>
-        <div className="terms-header-right">
-          <p><a href="https://www.thrillathon.co.in" target="_blank" rel="noopener noreferrer" style={{color: 'inherit', textDecoration: 'underline'}}>www.thrillathon.co.in</a></p>
-          <p>CIN:U72100RJ2024PTC097560</p>
-          <p>contact@thrillathon.co.in</p>
-          <p>MOB:+91-8824223395</p>
+        <div className="terms-header-contact">
+          <p style={{ margin: 0 }}>
+            <a href="https://www.thrillathon.co.in" target="_blank" rel="noopener noreferrer">www.thrillathon.co.in</a><br/>
+            CIN:U72100RJ2024PTC097560<br/>
+            contact@thrillathon.co.in<br/>
+            MOB:+91-8824223395
+          </p>
         </div>
       </div>
 
-      {/* Main Content Box */}
-      <div className="terms-content-box">
-        <h1>THRILLATHON - TERMS & CONDITIONS</h1>
+      {/* Lavender content panel */}
+      <div className="terms-panel">
+        <div className="terms-panel-title">
+          <h1>THRILLATHON - TERMS & CONDITIONS</h1>
+          <p className="terms-updated">Last Updated: June 2026</p>
+        </div>
+        <hr className="terms-divider" />
 
         <div className="terms-section">
           <h2>1. Introduction and Acceptance of Terms</h2>

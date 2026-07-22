@@ -19,10 +19,8 @@
   justify-content: space-between;
   align-items: center;
   border-radius: 100px;
-  background: rgba(255, 255, 255, 0.45) !important; /* White frosted glass */
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
 }
 
 .logo-container {
@@ -65,7 +63,7 @@
 }
 
 .nav-link-active {
-  color: #6d28d9; /* Darker purple than default */
+  color: blue;
 }
 
 .mobile-menu-btn {
